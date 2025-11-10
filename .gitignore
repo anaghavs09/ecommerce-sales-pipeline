@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Data (don't commit large files)
+data/raw/*.csv
+data/cleaned/*.csv
+
+# Database
+*.db
+*.sqlite
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/

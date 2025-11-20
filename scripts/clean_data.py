@@ -100,7 +100,7 @@ def handle_missing_values(df, dataset_name):
     print(f"\nMissing values after: {missing_after:,}")
     print(f"✅ Cleaned {missing_before - missing_after:,} missing values\n")
     
-    return df
+    return df 
 
 def convert_date_columns(df, dataset_name, date_columns):
     """

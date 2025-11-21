@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: fct_customer_metrics
+    description: "Customer lifetime value and behavior metrics"
+    tests:
+      - dbt_utils.expression_is_true:
+          expression: "total_revenue >= 0"
+          config:
+            severity: error
+    columns:
+      - name: customer_key
+        tests:
+          - unique
+          - not_null
+          
+      - name: total_orders
+        description: "Lifetime order count"
+        tests:
+          - not_null
+          
+      - name: total_revenue
+        description: "Lifetime revenue from customer"
+        tests:
+          - not_null
+          
+      - name: customer_segment
+        tests:
+          - accepted_values:
+              values: ['One-time', 'Occasional', 'Frequent']
+
+  - name: fct_product_performance
+    description: "Product sales and performance metrics"
+    columns:
+      - name: product_key
+        tests:
+          - unique
+          - not_null
+          
+      - name: performance_category
+        tests:
+          - accepted_values:
+              values: ['Best Seller', 'Popular', 'Regular', 'Slow Moving', 'Never Sold']
+
+  - name: fct_monthly_revenue
+    description: "Monthly time-series revenue analytics"
+    columns:
+      - name: month_date
+        description: "First day of month"
+        tests:
+          - unique
+          - not_null
+          
+      - name: total_revenue
+        tests:
+          - not_null

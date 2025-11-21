@@ -1,0 +1,76 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Cleaned and enhanced customer dimension"
+    columns:
+      - name: customer_key
+        description: "Unique customer identifier"
+        tests:
+          - unique
+          - not_null
+          
+      - name: customer_id
+        description: "Natural customer ID from source"
+        tests:
+          - unique
+          - not_null
+          
+      - name: customer_state
+        description: "Customer state abbreviation"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['SP', 'RJ', 'MG', 'RS', 'PR', 'SC', 'BA', 'DF', 'GO', 'ES', 
+                      'PE', 'CE', 'PA', 'MT', 'MA', 'MS', 'PB', 'RN', 'AL', 'PI',
+                      'SE', 'RO', 'TO', 'AC', 'AM', 'AP', 'RR']
+      
+      - name: is_sao_paulo
+        description: "Flag for São Paulo state"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [true, false]
+
+  - name: stg_orders
+    description: "Enhanced order transaction facts"
+    columns:
+      - name: order_key
+        description: "Unique order line item identifier"
+        tests:
+          - unique
+          - not_null
+          
+      - name: customer_key
+        description: "Foreign key to customers"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_key
+              
+      - name: price
+        description: "Order item price"
+        tests:
+          - not_null
+          
+      - name: total_amount
+        description: "Price plus freight"
+        tests:
+          - not_null
+          
+      - name: delivery_status
+        description: "On Time or Late"
+        tests:
+          - accepted_values:
+              values: ['On Time', 'Late']
+              config:
+                severity: warn  # Warning instead of error
+
+  - name: stg_products
+    description: "Cleaned product dimension"
+    columns:
+      - name: product_key
+        tests:
+          - unique
+          - not_null

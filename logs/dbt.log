@@ -1,0 +1,31 @@
+[0m10:33:06.727321 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1066c5fa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109f0eba0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109f0e8a0>]}
+
+
+============================== 10:33:06.736655 | 19590b1d-fc2c-44d4-985e-da93274167c1 ==============================
+[0m10:33:06.736655 [info ] [MainThread]: Running with dbt=1.10.15
+[0m10:33:06.737166 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'version_check': 'True', 'introspect': 'True', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'partial_parse': 'True', 'quiet': 'False', 'indirect_selection': 'eager', 'warn_error': 'None', 'invocation_command': 'dbt init ecommerce_dbt', 'send_anonymous_usage_stats': 'True', 'empty': 'None', 'log_cache_events': 'False', 'fail_fast': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'target_path': 'None', 'write_json': 'True', 'debug': 'False', 'printer_width': '80', 'log_path': 'logs', 'use_colors': 'True', 'profiles_dir': '/Users/anaghavs/.dbt'}
+[0m10:33:06.752226 [info ] [MainThread]: Creating dbt configuration folder at /Users/anaghavs/.dbt
+[0m10:33:06.753710 [debug] [MainThread]: Starter project path: /Users/anaghavs/Documents/Folder/Project 2 2025/ecommerce-sales-pipeline/.venv/lib/python3.12/site-packages/dbt/include/starter_project
+[0m10:33:06.773113 [info ] [MainThread]: 
+Your new dbt project "ecommerce_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m10:33:06.773432 [info ] [MainThread]: Setting up your profile.
+[0m10:35:23.021470 [info ] [MainThread]: Profile ecommerce_dbt written to /Users/anaghavs/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m10:35:23.293069 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 136.6981, "process_in_blocks": "0", "process_kernel_time": 0.339957, "process_mem_max_rss": "122634240", "process_out_blocks": "0", "process_user_time": 2.042101}
+[0m10:35:23.295258 [debug] [MainThread]: Command `dbt init` succeeded at 10:35:23.295013 after 136.70 seconds
+[0m10:35:23.297570 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109dafef0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10736b980>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108465af0>]}
+[0m10:35:23.299029 [debug] [MainThread]: Flushing usage events
+[0m10:35:23.723473 [debug] [MainThread]: An error was encountered while trying to flush usage events
